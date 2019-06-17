@@ -1,0 +1,159 @@
+﻿@model StudentWebApp.Models.EmployeeModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Student</h2>
+
+@using (Html.BeginForm("Create", "Student"))
+{
+    <div class="form-label">
+        <div class="col-sm-12 col-lg-12 col-md-12">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.Label("ID", new { @class = "labelbox" })
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.TextBoxFor(m => m.ID, new { @class = "textbox",Id="IDTextBox" })
+            </div>
+            @*<div class="col-sm-1 col-md-1 col-lg-1"></div>*@
+            @*<div class="col-sm-3 col-md-3 col-lg-3">
+                    @Html.ValidationMessageFor(m => m.ID, "", new { @class = "validationError" })
+                </div>*@
+        
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.Label("Name", new { @class = "labelbox" })
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.TextBoxFor(m => m.Name, new { @class = "textbox",ID= "NameTextBox" })
+            </div>
+            @*<div class="col-sm-1 col-md-1 col-lg-1"></div>*@
+            @*<div class="col-sm-3 col-md-3 col-lg-3">
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "validationError" })
+                </div>*@
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.Label("Salary", new { @class = "labelbox" })
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.TextBoxFor(m => m.Salary, new { @class = "textbox",ID= "SalTextBox" })
+            </div>
+            @*<div class="col-sm-1 col-md-1 col-lg-1"></div>*@
+            @*<div class="col-sm-3 col-md-3 col-lg-3">
+                    @Html.ValidationMessageFor(m => m.Salary, "", new { @class = "validationError" })
+                </div>*@
+        </div>
+
+        <br />
+        <br />
+        <div class="col-sm-12 col-lg-12 col-md-12">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.Label("Gender", new { @class = "labelbox" })
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                    {
+                     new SelectListItem{Text="Male",Value="Male" },
+                     new SelectListItem{Text="Female",Value="Female" },
+                    },"Select",
+                    new{@class= "dropdown",ID="GenderDD" })
+            </div>
+            @*<div class="col-sm-1 col-md-1 col-lg-1"></div>*@
+            @*<div class="col-sm-3 col-md-3 col-lg-3">
+                    @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "validationError" })
+                </div>*@
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.Label("Department", new { @class = "labelbox" })
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                @Html.DropDownListFor(m => m.DepartmentID, new List<SelectListItem>
+           { new SelectListItem {Text="IT",Value="1"},new SelectListItem {Text="HR",Value="2" },
+               new SelectListItem {Text="Technical",Value="3" } },"Select",new {@class="dropdown",ID="DepartmentDD"})
+            </div>
+            @*<div class="col-sm-1 col-md-1 col-lg-1"></div>*@
+            @*<div class="col-sm-3 col-md-3 col-lg-3">
+                    @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "validationError" })
+                </div>*@
+        </div>
+        <br />
+        <br />
+        <div class="col-sm-8 col-md-8 col-lg-8 btndiv">
+
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <button type="Submit" name="Sumit" class="btn btn-primary stdbutton">Save</button>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <button type="Submit" name="Sumit" class="btn btn-primary stdbutton delbutton">Delete</button>
+            </div>
+
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <button type="reset" name="reset" class="btn btn-primary stdbutton ButtonClr">Clear</button>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
+
+
+
+
+<style>
+    body {
+    margin:0px;
+    padding:0px;
+    margin-top:10px;
+    }
+    .validationError {
+        color: red;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .labelbox {
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    
+    .textbox, .dropdown {
+        width: 170px;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    .dropdown {
+        border: 2px solid grey;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        font-weight: 800;
+        font-family: sans-serif;
+        margin-top: 50px;
+    }
+
+    .stdbutton {
+        width: 110px;
+        text-align: center;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-radius: 5px;
+        background-color: #000035;
+        border-color:none !important;
+    }
+
+    .form-label {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+
+</style>
+

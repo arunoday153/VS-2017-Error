@@ -1,0 +1,12 @@
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\StudentWebApp.DAL.dll.config
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\StudentWebApp.DAL.dll
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\StudentWebApp.DAL.pdb
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\EntityFramework.dll
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\EntityFramework.xml
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\obj\Debug\StudentWebApp.DAL.csprojAssemblyReference.cache
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\obj\Debug\StudentWebApp.DAL.csproj.CoreCompileInputs.cache
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\obj\Debug\StudentWebApp.DAL.csproj.CopyComplete
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\obj\Debug\StudentWebApp.DAL.dll
+C:\Users\kiit\source\repos\StudentWebApp\StudentWebApp.DAL\obj\Debug\StudentWebApp.DAL.pdb

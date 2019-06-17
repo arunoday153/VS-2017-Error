@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "GetAllRecords";
+}
+
+@Scripts.Render("~/bundles/jquery")
+@{
+
+    ViewBag.Title = "Index";
+}
+<table>
+    <tr class="header">
+        <th></th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Salary</th>
+        <th>Designation</th>
+    </tr>
+
+</table>
+
+<style>
+    td, th {
+        width: 200px;
+        padding:7px;
+        font-size:15px;
+
+    }
+    table,th,td {
+    border:1px solid black;
+    text-align:center;
+    }
+    .header {
+        background-color: #546e7a;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        font-weight: 900;
+        font-size:20px !important;
+    }
+    .header:hover {
+        background-color: #546e7a;
+    }
+    tr:hover {
+        background-color: #cfd8dc;
+        font-size:18px;
+        font-weight:500;
+    }
+    .chk:checked {
+        transform: scale(2);
+        -ms-transform: scale(2);
+        -webkit-transform: scale(2);
+        padding: 10px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        clr();
+        
+        var previousID;
+        $.ajax({
+            url: "/Student/GetAllRecords",
+            type: "GET",
+            dataType: "json",
+            success: function (result) {
+                var tr;
+                for (var i = 0; i < result.length; i++) {
+                    tr = $('<tr>');
+                    $("<td>").html('<input type="checkbox" class="chk"  name="chkBestSeller" />').appendTo(tr);
+                    tr.append("<td id='id'>" + result[i]["ID"] + "</td>");
+                    tr.append("<td>" + result[i]["Name"] + "</td>");
+                    tr.append("<td>" + result[i]["Gender"] + "</td>");
+                    tr.append("<td>" + result[i]["Salary"] + "</td>");
+                    tr.append("<td>" + result[i]["Department"] + "</td>");
+                    $('table').append(tr);
+                }
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+
+        $(document).on("click", "input[name='chkBestSeller']", function () {
+            if ($(this).is(':checked')) {
+                $('input:checkbox').not(this).prop('checked', false);
+                var ID = $(':checkbox:checked').closest('tr').find('td')[1].innerHTML;
+                var Name = $(':checkbox:checked').closest('tr').find('td')[2].innerHTML;
+                var Gender = $(':checkbox:checked').closest('tr').find('td')[3].innerHTML;
+                var Salary = $(':checkbox:checked').closest('tr').find('td')[4].innerHTML;
+                var Department = $(':checkbox:checked').closest('tr').find('td')[5].innerHTML;
+                $("#IDTextBox").val(ID);
+                $("#NameTextBox").val(Name);
+                $("#SalTextBox").val(Salary);
+                $("#GenderDD").val(Gender);
+                $("#DepartmentDD option").map(function () {
+                    if ($(this).text() == Department) {     
+                        $(this).prop('selected', true);
+                    }
+                });
+                //$("#DepartmentDD").find('option[value="' + Department + '"]').attr('selected', 'selected');  
+                //$("#DepartmentDD option:contains(" + Department + ")").attr('selected', 'selected');
+            }
+            else {
+                clr();
+            }
+
+        });
+
+
+        function clr() {
+            $("#IDTextBox").val('');
+            $("#NameTextBox").val('');
+            $("#SalTextBox").val('');
+            $("#GenderDD").val($("#GenderDD option:first").val());
+            $("#departmentdd").val($("#departmentdd option:first").val());
+
+            $('table tr td input[type="checkbox"]').each(function () {
+                $(this).prop('checked', false);
+            });
+            debugger;
+            $('.chk').each(function () {
+                debugger;
+                $(this).prop("selected", false);
+            });    
+        }
+
+        $(".delbutton").click(function () {
+            $("form").attr(
+                "action",
+                "@Url.Action("Delete", "Student")",
+            ).submit();
+        });
+
+        $(".Clr").Click(function () {
+            clr();
+            count = 0;
+            $('.chk').each(function () {
+                alert(count++);
+                $(this).prop('checked', false);
+            });
+        });
+    });
+</script>
+

@@ -1,0 +1,40 @@
+﻿@model  List<StudentWebApp.Models.EmployeeModel>
+@{
+    ViewBag.Title = "GetAllRecords";
+}
+
+<h2>ALL EMPLOYEES</h2>
+
+
+<table>
+    <tr>
+        <th></th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Gender</th> 
+        <th>Salary</th>
+        <th>Designation</th>
+    </tr>
+
+
+    @foreach(var res in Model)
+    {
+     <tr>
+         <th>@Html.CheckBox("Uncheck")</th>
+         <td>@res.ID</td>
+         <td>@res.Name</td>
+         <td>@res.Gender</td>
+         <td>@res.Salary</td>
+         <td>@res.DepartmentID</td>
+     </tr>
+    
+    }
+</table>
+
+
+<style>
+    td, th {
+    width:200px;
+    }
+</style>
+

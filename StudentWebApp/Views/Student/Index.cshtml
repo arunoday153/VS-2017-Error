@@ -1,0 +1,19 @@
+﻿@model  StudentWebApp.Models.EmployeeModel
+
+@{Html.RenderPartial("~/Views/SharedView/CreateEmp.cshtml", Model);}
+
+<hr/>
+<hr class="dividehr"/>
+@{Html.RenderPartial("~/Views/SharedView/displayAll.cshtml", Model);}
+
+
+
+<style>
+    .dividehr {
+        background-color: #003366;
+        height: 3px;
+    }
+    body {
+        background-color: #f5f5f5;
+    }
+</style>
